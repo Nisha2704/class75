@@ -1,18 +1,15 @@
 import firebase from '@firebase/app';
-import '@firebase/util';
-import '@firebase/logger';
-import '@firebase/webchannel-wrapper';
 require ('@firebase/firestore')
 
 var firebaseConfig = {
-    apiKey: "AIzaSyBhAbotJNyXnHqWQLTbrpfFsHQlV8fSwLw",
-    authDomain: "libraryapp-a3929.firebaseapp.com",
-    projectId: "libraryapp-a3929",
-    storageBucket: "libraryapp-a3929.appspot.com",
-    messagingSenderId: "606437141021",
-    appId: "1:606437141021:web:e442098ebb9fcadafb74f4"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  apiKey: "AIzaSyBmEACDTJN0pAoYkyoiDxIUyY4E1epROrA",
+  authDomain: "libraryapp-6b70c.firebaseapp.com",
+  projectId: "libraryapp-6b70c",
+  storageBucket: "libraryapp-6b70c.appspot.com",
+  messagingSenderId: "728312990109",
+  appId: "1:728312990109:web:32f2583f039078e62e8774"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
   export default firebase.firestore()
