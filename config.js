@@ -2,6 +2,7 @@ import firebase from '@firebase/app';
 require ('@firebase/firestore')
 
 var firebaseConfig = {
+  
   apiKey: "AIzaSyBmEACDTJN0pAoYkyoiDxIUyY4E1epROrA",
   authDomain: "libraryapp-6b70c.firebaseapp.com",
   projectId: "libraryapp-6b70c",
