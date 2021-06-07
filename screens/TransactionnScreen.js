@@ -16,6 +16,7 @@ export default class TransactionScreen extends React.Component{
             scannedBookId:'',
             scannedStudentId:'',
             transactionMessage:'',
+            
         }
         
     }
