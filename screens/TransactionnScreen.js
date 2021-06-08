@@ -56,15 +56,15 @@ export default class TransactionScreen extends React.Component{
         //issue : number of book issued < 2
         //issue: verify book availability
         //return: last transaction -> book issued by the student id
-        var transactionType = await this.checkBookEligibility();
-      console.log(transactionType)
-        if (!transactionType) {
+        var transactiontype = await this.checkBookEligibility();
+      console.log(transactiontype)
+        if (!transactiontype) {
           alert("The book doesn't exist in the library database!");
           this.setState({
             scannedStudentId: "",
             scannedBookId: ""
           });
-        } else if (transactionType === "Issue") {
+        } else if (transactiontype === "Issue") {
           var isStudentEligible = await this.checkStudentEligibilityForBookIssue();
           if (isStudentEligible) {
             this.initiateBookIssue();
@@ -79,30 +79,30 @@ export default class TransactionScreen extends React.Component{
         }
       };
       checkBookEligibility = async () => {
-        const bookRef = await db
-          .collection("books")
+        const bookRef = await 
+        db.collection("books")
           .where("bookId", "==", this.state.scannedBookId)
           .get();
-        var transactionType = "";
+        var transactiontype = "";
         if (bookRef.docs.length == 0) {
-          transactionType = false;
+          transactiontype = false;
         } else {
           bookRef.docs.map(doc => {
             var book = doc.data();
             if (book.bookAvialable) {
-              transactionType = "Issue";
+              transactiontype = "Issue";
             } else {
-              transactionType = "Return";
+              transactiontype = "Return";
             }
           });
         }
     
-        return transactionType;
+        return transactiontype;
       };
     
       checkStudentEligibilityForBookIssue = async () => {
-        const studentRef = await db
-          .collection("student")
+        const studentRef = await 
+          db.collection("student")
           .where("studentId", "==", this.state.scannedStudentId)
           .get();
         var isStudentEligible = "";
@@ -133,8 +133,8 @@ export default class TransactionScreen extends React.Component{
       };
     
       checkStudentEligibilityForReturn = async () => {
-        const transactionRef = await db
-          .collection("transaction")
+        const transactionRef = await 
+          db.collection("transaction")
           .where("bookId", "==", this.state.scannedBookId)
           .limit(1)
           .get();
